@@ -1,0 +1,101 @@
+extends layout
+
+block navigation
+  nav(class='navbar navbar-expand-lg fixed-top navigation')
+    div(class='container-fluid')
+      a(href="#hero" class='navbar-brand')
+        img(src="/images/logo.png", alt="Studio Paper" class='img-fluid brand-logo')
+      button(class='navbar-toggler', type='button', data-collapse='collapse', data-target='#mainNav', aria-controls='mainNav', aria-expanded='false', aria-label='Abrir navegação')
+        span(class='navbar-toggler-icon')
+          i(class='fas fa-bars')
+      div#mainNav(class='collapse navbar-collapse justify-content-end')
+        ul(class='navbar-nav')
+          li(class='navbar-item')
+            a(class='nav-link active' href="#hero") Home
+          li(class='navbar-item')
+            a(class='nav-link' href="#servicos") Serviços
+          li(class='navbar-item')
+            a(class='nav-link' href="#contato") Contato
+
+block hero
+  section#hero(class='d-flex align-items-center')
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1', data-aos='fade-up', data-aos-delay='200')
+          h1 Bem vindo a <br> Paper Design Studio!
+          h2 Somos um estudio de design digital focado em tornar estratégias de negócios em produtos rentáveis e artes que as pessoas amam.
+          div(class='d-lg-flex')
+            a(class='btn-hero scrollTo' href="#servicos") Ver os serviços!
+        div(class='col-lg-6 order-1 order-lg-2 hero-img', data-aos='zoom-in', data-aos-delay='200')
+          img(src="/images/banner.png", alt="Animação", class='img-fluid animated')
+
+block servicos
+  section#servicos(class='services section-bg')
+    div(class='container' data-aos='fade-up')
+      div(class='section-title')
+        h2 Serviços
+        p  Fazemos design de forma criativa com destaque nas áreas de <strong>Branding</strong>, <strong>Design Gráfico e Digital</strong>, <strong>Design de Produtos</strong> e <strong>UI Design</strong>.
+      div(class='row')
+        div(class='col-xl-3 col-md-6 d-flex align-items-stretch', data-aos='zoom-in', data-aos-delay='100')
+          div(class='card icon-box')
+            img(src="/images/id-visual.svg", alt="")
+            div(class='card-body')
+            h5
+              a(class='card-text' href="") Identidade Visual
+        div(class='col-xl-3 col-md-6 d-flex align-items-stretch', data-aos='zoom-in', data-aos-delay='300')
+          div(class='card icon-box')
+            img(src="/images/ui-design.svg", alt="")
+            div(class='card-body')
+            h5
+              a(class='card-text' href="") UI Design
+        div(class='col-xl-3 col-md-6 d-flex align-items-stretch', data-aos='zoom-in', data-aos-delay='500')
+          div(class='card icon-box')
+            img(src="/images/digital-design.svg", alt="")
+            div(class='card-body')
+            h5
+              a(class='card-text' href="") Design Gráfico
+        div(class='col-xl-3 col-md-6 d-flex align-items-stretch', data-aos='zoom-in', data-aos-delay='700')
+          div(class='card icon-box')
+            img(src="/images/product-design.svg", alt="")
+            div(class='card-body')
+            h5
+              a(class='card-text' href="") Design de Produtos
+
+block contato
+  section#contato(class='contato')
+     div(class='container', data-aos='fade-up')
+        div(class='section-title')
+          h2 Contato
+          p Entre em contato através do formulário, ou envie um e-mail diretamente para: 
+            a(class="mail", href="mailto:contato@studiopaper.com.br") <strong>contato@studiopaper.com.br</strong>.
+        div(class='row')
+          div(class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch mx-auto")
+              form(action="/send" method='POST' role="form" class="email-form")
+                h3(class='text-center p-3 mb-3 text-success')= alerta
+                div(class="form-row")
+                  div(class="form-group col-md-6")
+                    label(for="name") Nome Completo
+                    input(type="text" name="name" class="form-control" id="name" data-rule="minlen:2" required data-msg="Por favor, digite um nome com pelo menos dois caracteres")
+                    div(class='validate')
+                  div(class="form-group col-md-6")
+                    label(for="email") E-mail
+                    input(type="email" class="form-control" name="email" id="email" data-rule="email" required data-msg="Por favor, digite um e-mail válido")
+                    div(class="validate")
+                  div(class="form-group col-12")
+                    label(for="subject") Assunto
+                    input(type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" required data-msg="Por favor, digite pelo menos 8 caracteres de assunto")
+                    div(class="validate")
+                  div(class="form-group col-12")
+                    label(for="message") Mensagem
+                    textarea(class="form-control" name="message" id='message' rows="10" data-rule="required" required data-msg="Por favor, digite sua mensagem para nós")
+                    div(class="validate")
+                  div(class='text-center mx-auto')
+                    button(type='submit') Enviar mensagem
+
+block footer
+   footer(id="footer")
+      div(class="container footer-bottom clearfix")
+        div(class="copyright")
+          span <strong>&copy; 2020</strong>. Todos os direitos reservados
+        div(class="credits") Desenvolvido por 
+          a(href="studiopaper.com.br") Studio Paper
